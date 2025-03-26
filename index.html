@@ -2,11 +2,62 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Генетические алгоритмы</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <style>
+    @media (max-width: 768px) {
+      .mobile-header {
+        flex-direction: column;
+        padding: 0.5rem 1rem;
+      }
+      .mobile-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+      }
+      .mobile-nav li {
+        margin: 0;
+      }
+      .main-title {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+      }
+      .main-description {
+        font-size: 1.05rem;
+        margin-bottom: 2rem;
+      }
+      .card {
+        padding: 1.25rem;
+      }
+      .card-icon {
+        width: 3.5rem;
+        height: 3.5rem;
+        margin-bottom: 1rem;
+      }
+      .card-icon i {
+        font-size: 1.5rem;
+      }
+      .card-title {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+      }
+      .card-text {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.5;
+      }
+      .card-button {
+        padding: 0.6rem 1.25rem;
+        font-size: 0.95rem;
+      }
+      .return-button {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+      }
+    }
     .gradient-text {
       background: linear-gradient(90deg, #3b82f6, #1d4ed8);
       -webkit-background-clip: text;
@@ -41,114 +92,114 @@
 <body class="bg-gray-50 text-gray-800 font-sans">
   <!-- Шапка -->
   <header class="bg-white shadow-md fixed w-full top-0 z-50">
-    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-      <div class="flex items-center">
-        <a href="main.html" class="mr-4 text-blue-600 hover:text-blue-800">
-          <i class="fas fa-home text-xl"></i>
+    <div class="container mx-auto px-4 py-3 flex flex-col sm:flex-row justify-between items-center mobile-header">
+      <div class="flex items-center mb-2 sm:mb-0">
+        <a href="main.html" class="mr-3 sm:mr-4 text-blue-600 hover:text-blue-800">
+          <i class="fas fa-home text-lg sm:text-xl"></i>
         </a>
-        <div class="text-xl font-bold gradient-text">Генетические алгоритмы</div>
+        <div class="text-lg sm:text-xl font-bold gradient-text">Генетические алгоритмы</div>
       </div>
       <nav>
-        <ul class="flex space-x-6">
-          <li><a href="index.html" class="nav-link hover:text-blue-500">Главная</a></li>
-          <li><a href="goal.html" class="nav-link hover:text-blue-500">Цель</a></li>
-          <li><a href="principles.html" class="nav-link hover:text-blue-500">Принципы</a></li>
-          <li><a href="stages.html" class="nav-link hover:text-blue-500">Этапы</a></li>
-          <li><a href="application.html" class="nav-link hover:text-blue-500">Применение</a></li>
-          <li><a href="future.html" class="nav-link hover:text-blue-500">Перспективы</a></li>
+        <ul class="flex flex-wrap justify-center sm:space-x-4 mobile-nav">
+          <li><a href="index.html" class="nav-link hover:text-blue-500 px-2 py-1 text-sm sm:text-base">Главная</a></li>
+          <li><a href="goal.html" class="nav-link hover:text-blue-500 px-2 py-1 text-sm sm:text-base">Цель</a></li>
+          <li><a href="principles.html" class="nav-link hover:text-blue-500 px-2 py-1 text-sm sm:text-base">Принципы</a></li>
+          <li><a href="stages.html" class="nav-link hover:text-blue-500 px-2 py-1 text-sm sm:text-base">Этапы</a></li>
+          <li><a href="application.html" class="nav-link hover:text-blue-500 px-2 py-1 text-sm sm:text-base">Применение</a></li>
+          <li><a href="future.html" class="nav-link hover:text-blue-500 px-2 py-1 text-sm sm:text-base">Перспективы</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <!-- Основной контент -->
-  <main class="pt-24 container mx-auto px-4 py-8 max-w-6xl">
-    <div class="text-center mb-12">
-      <h1 class="text-4xl font-bold mb-4 gradient-text">История развития генетических алгоритмов</h1>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto">Генетические алгоритмы — это мощный инструмент для решения сложных задач оптимизации, вдохновленный биологической эволюцией. Изучите их историю, принципы работы и применение в различных областях.</p>
+  <main class="pt-20 sm:pt-24 container mx-auto px-4 py-8 max-w-6xl">
+    <div class="text-center mb-8 sm:mb-12">
+      <h1 class="text-3xl sm:text-4xl font-bold mb-4 gradient-text main-title">История развития генетических алгоритмов</h1>
+      <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto main-description">Генетические алгоритмы — это мощный инструмент для решения сложных задач оптимизации, вдохновленный биологической эволюцией. Изучите их историю, принципы работы и применение в различных областях.</p>
     </div>
 
     <!-- Карточки с разделами -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
       <!-- Цель работы -->
-      <div class="bg-white p-6 rounded-xl shadow-md card-hover">
+      <div class="bg-white p-6 rounded-xl shadow-md card-hover card">
         <div class="text-center">
-          <div class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 card-icon">
             <i class="fas fa-bullseye text-2xl text-blue-500"></i>
           </div>
-          <h2 class="text-2xl font-bold mb-4 text-gray-800">Цель работы</h2>
-          <p class="text-gray-600 mb-6">Исследовать историю развития генетических алгоритмов, их эволюцию, ключевые этапы, принципы работы и влияние на современные технологии.</p>
-          <a href="goal.html" class="inline-flex items-center px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+          <h2 class="text-xl sm:text-2xl font-bold mb-4 text-gray-800 card-title">Цель работы</h2>
+          <p class="text-gray-600 mb-6 card-text">Исследовать историю развития генетических алгоритмов, их эволюцию, ключевые этапы, принципы работы и влияние на современные технологии.</p>
+          <a href="goal.html" class="inline-flex items-center px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition card-button">
             Подробнее <i class="fas fa-arrow-right ml-2"></i>
           </a>
         </div>
       </div>
 
       <!-- Основные принципы -->
-      <div class="bg-white p-6 rounded-xl shadow-md card-hover">
+      <div class="bg-white p-6 rounded-xl shadow-md card-hover card">
         <div class="text-center">
-          <div class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 card-icon">
             <i class="fas fa-dna text-2xl text-blue-500"></i>
           </div>
-          <h2 class="text-2xl font-bold mb-4 text-gray-800">Основные принципы</h2>
-          <p class="text-gray-600 mb-6">Генетические алгоритмы основаны на принципах естественного отбора, мутации и рекомбинации.</p>
-          <a href="principles.html" class="inline-flex items-center px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+          <h2 class="text-xl sm:text-2xl font-bold mb-4 text-gray-800 card-title">Основные принципы</h2>
+          <p class="text-gray-600 mb-6 card-text">Генетические алгоритмы основаны на принципах естественного отбора, мутации и рекомбинации.</p>
+          <a href="principles.html" class="inline-flex items-center px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition card-button">
             Подробнее <i class="fas fa-arrow-right ml-2"></i>
           </a>
         </div>
       </div>
 
       <!-- Этапы развития -->
-      <div class="bg-white p-6 rounded-xl shadow-md card-hover">
+      <div class="bg-white p-6 rounded-xl shadow-md card-hover card">
         <div class="text-center">
-          <div class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 card-icon">
             <i class="fas fa-chart-line text-2xl text-blue-500"></i>
           </div>
-          <h2 class="text-2xl font-bold mb-4 text-gray-800">Этапы развития</h2>
-          <p class="text-gray-600 mb-6">Изучите ключевые этапы развития ГА: от теоретических основ до современных применений.</p>
-          <a href="stages.html" class="inline-flex items-center px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+          <h2 class="text-xl sm:text-2xl font-bold mb-4 text-gray-800 card-title">Этапы развития</h2>
+          <p class="text-gray-600 mb-6 card-text">Изучите ключевые этапы развития ГА: от теоретических основ до современных применений.</p>
+          <a href="stages.html" class="inline-flex items-center px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition card-button">
             Подробнее <i class="fas fa-arrow-right ml-2"></i>
           </a>
         </div>
       </div>
 
       <!-- Применение -->
-      <div class="bg-white p-6 rounded-xl shadow-md card-hover">
+      <div class="bg-white p-6 rounded-xl shadow-md card-hover card">
         <div class="text-center">
-          <div class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 card-icon">
             <i class="fas fa-cogs text-2xl text-blue-500"></i>
           </div>
-          <h2 class="text-2xl font-bold mb-4 text-gray-800">Применение</h2>
-          <p class="text-gray-600 mb-6">ГА используются в науке, технике, экономике, искусстве и многих других областях.</p>
-          <a href="application.html" class="inline-flex items-center px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+          <h2 class="text-xl sm:text-2xl font-bold mb-4 text-gray-800 card-title">Применение</h2>
+          <p class="text-gray-600 mb-6 card-text">ГА используются в науке, технике, экономике, искусстве и многих других областях.</p>
+          <a href="application.html" class="inline-flex items-center px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition card-button">
             Подробнее <i class="fas fa-arrow-right ml-2"></i>
           </a>
         </div>
       </div>
 
       <!-- Преимущества и недостатки -->
-      <div class="bg-white p-6 rounded-xl shadow-md card-hover">
+      <div class="bg-white p-6 rounded-xl shadow-md card-hover card">
         <div class="text-center">
-          <div class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 card-icon">
             <i class="fas fa-balance-scale text-2xl text-blue-500"></i>
           </div>
-          <h2 class="text-2xl font-bold mb-4 text-gray-800">Преимущества и недостатки</h2>
-          <p class="text-gray-600 mb-6">Узнайте о сильных и слабых сторонах генетических алгоритмов.</p>
-          <a href="pros-cons.html" class="inline-flex items-center px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+          <h2 class="text-xl sm:text-2xl font-bold mb-4 text-gray-800 card-title">Преимущества и недостатки</h2>
+          <p class="text-gray-600 mb-6 card-text">Узнайте о сильных и слабых сторонах генетических алгоритмов.</p>
+          <a href="pros-cons.html" class="inline-flex items-center px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition card-button">
             Подробнее <i class="fas fa-arrow-right ml-2"></i>
           </a>
         </div>
       </div>
 
       <!-- Перспективы развития -->
-      <div class="bg-white p-6 rounded-xl shadow-md card-hover">
+      <div class="bg-white p-6 rounded-xl shadow-md card-hover card">
         <div class="text-center">
-          <div class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 card-icon">
             <i class="fas fa-rocket text-2xl text-blue-500"></i>
           </div>
-          <h2 class="text-2xl font-bold mb-4 text-gray-800">Перспективы развития</h2>
-          <p class="text-gray-600 mb-6">Исследуйте современные тенденции и будущее генетических алгоритмов.</p>
-          <a href="future.html" class="inline-flex items-center px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+          <h2 class="text-xl sm:text-2xl font-bold mb-4 text-gray-800 card-title">Перспективы развития</h2>
+          <p class="text-gray-600 mb-6 card-text">Исследуйте современные тенденции и будущее генетических алгоритмов.</p>
+          <a href="future.html" class="inline-flex items-center px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition card-button">
             Подробнее <i class="fas fa-arrow-right ml-2"></i>
           </a>
         </div>
@@ -157,7 +208,7 @@
 
     <!-- Кнопка возврата -->
     <div class="text-center mt-8">
-      <a href="main.html" class="inline-flex items-center px-6 py-3 bg-gray-200 text-gray-700 font-medium rounded-lg hover:bg-gray-300 transition">
+      <a href="main.html" class="inline-flex items-center px-5 sm:px-6 py-2 sm:py-3 bg-gray-200 text-gray-700 font-medium rounded-lg hover:bg-gray-300 transition return-button">
         <i class="fas fa-arrow-left mr-2"></i>
         Вернуться к титульному листу
       </a>
@@ -165,15 +216,9 @@
   </main>
 
   <!-- Подвал -->
-  <footer class="bg-gray-800 text-white py-6 mt-12">
-    <div class="container mx-auto px-4">
-      <div class="flex flex-col md:flex-row justify-between items-center">
-        <div class="mb-4 md:mb-0">
-          <p class="text-sm">© 2025 СПбГУТ. Железинский ИБ-36С</p>
-        </div>
-          </a>
-        </div>
-      </div>
+  <footer class="bg-gray-800 text-white py-4 mt-12">
+    <div class="container mx-auto px-4 text-center">
+      <p>2025 СПбГУТ. Железинский ИБ-36С.</p>
     </div>
   </footer>
 </body>

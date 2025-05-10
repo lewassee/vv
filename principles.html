@@ -3,61 +3,268 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Основные принципы</title>
+  <title>Основные принципы генетических алгоритмов</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-  <link href="styles.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@headlessui/react@1.7.15/dist/headlessui.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="components.js"></script>
+  <style>
+    .principle-card {
+      transition: all 0.3s ease;
+      border-left: 4px solid transparent;
+    }
+    .principle-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1);
+      border-left-color: #3b82f6;
+    }
+    .step-connector {
+      position: relative;
+      height: 40px;
+      width: 2px;
+      background: #d1d5db;
+      margin: 0 auto;
+    }
+    .step-connector:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: -7px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #3b82f6;
+    }
+  </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-gray-50 text-gray-800">
   <!-- Шапка -->
-  <header class="bg-white shadow-md fixed w-full top-0 z-50">
-    <div class="container mx-auto px-4 py-2 flex justify-between items-center">
-      <div class="text-xl font-bold">Генетические алгоритмы</div>
-      <nav>
-        <ul class="flex space-x-4">
-          <li><a href="index.html" class="hover:text-blue-500">Главная</a></li>
-          <li><a href="goal.html" class="hover:text-blue-500">Цель</a></li>
-          <li><a href="principles.html" class="hover:text-blue-500">Принципы</a></li>
-          <li><a href="stages.html" class="hover:text-blue-500">Этапы</a></li>
-          <li><a href="application.html" class="hover:text-blue-500">Применение</a></li>
-          <li><a href="future.html" class="hover:text-blue-500">Перспективы</a></li>
+  <header class="bg-white shadow-md fixed w-full top-0 z-50 transition-all duration-300">
+    <div class="container mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center">
+      <a href="index.html" class="text-xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent hover:from-blue-800 hover:to-blue-600 transition-all duration-500">
+        Генетические алгоритмы
+      </a>
+      <nav class="mt-4 md:mt-0">
+        <ul class="flex flex-wrap justify-center gap-2 md:gap-4">
+          <li><a href="index.html" class="px-3 py-1 rounded-md hover:bg-blue-50 hover:text-blue-600 transition">Главная</a></li>
+          <li><a href="goal.html" class="px-3 py-1 rounded-md hover:bg-blue-50 hover:text-blue-600 transition">Цель</a></li>
+          <li><a href="principles.html" class="px-3 py-1 rounded-md bg-blue-100 text-blue-700 font-medium transition">Принципы</a></li>
+          <li><a href="stages.html" class="px-3 py-1 rounded-md hover:bg-blue-50 hover:text-blue-600 transition">Этапы</a></li>
+          <li><a href="application.html" class="px-3 py-1 rounded-md hover:bg-blue-50 hover:text-blue-600 transition">Применение</a></li>
+          <li><a href="future.html" class="px-3 py-1 rounded-md hover:bg-blue-50 hover:text-blue-600 transition">Перспективы</a></li>
+          <li><a href="main.html" class="nav-link px-3 py-1 rounded-md hover:bg-blue-50 hover:text-blue-600 transition">Титул</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <!-- Основной контент -->
-  <main class="pt-20 container mx-auto px-4 py-12">
-    <div class="text-center">
-      <i class="fas fa-dna text-6xl text-blue-500 mb-4"></i>
-      <h1 class="text-4xl font-bold mb-8">Основные принципы</h1>
+  <main class="pt-24 container mx-auto px-4 py-8 max-w-4xl">
+    <div class="text-center mb-12">
+      <div class="inline-block p-4 bg-blue-100 rounded-full">
+        <i class="fas fa-dna text-4xl text-blue-600"></i>
+      </div>
+      <h1 class="text-3xl md:text-4xl font-bold mt-4 mb-2 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+        Основные принципы генетических алгоритмов
+      </h1>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Узнайте о фундаментальных концепциях, лежащих в основе генетических алгоритмов
+      </p>
     </div>
-    <div class="bg-white p-6 rounded-lg shadow-md">
-      <h2 class="text-2xl font-bold mb-4">1. Популяция</h2>
-      <p class="text-lg mb-4">Популяция — это набор потенциальных решений задачи, представленных в виде "хромосом". Каждая хромосома — это закодированное решение (например, строка битов, чисел или других символов).</p>
 
-      <h2 class="text-2xl font-bold mb-4">2. Фитнес-функция</h2>
-      <p class="text-lg mb-4">Фитнес-функция — это функция, которая оценивает, насколько хорошо хромосома решает задачу. Чем выше значение фитнес-функции, тем лучше решение.</p>
+    <!-- Карточки с принципами -->
+    <div class="grid md:grid-cols-2 gap-6 mb-12">
+      <div class="principle-card bg-white p-6 rounded-lg shadow-sm">
+        <div class="flex items-start mb-4">
+          <div class="flex-shrink-0 bg-blue-100 p-3 rounded-full mr-4">
+            <i class="fas fa-users text-blue-600 text-xl"></i>
+          </div>
+          <div>
+            <h2 class="text-xl font-bold text-gray-800 mb-2">Популяция</h2>
+            <p class="text-gray-600">Набор потенциальных решений задачи, представленных в виде "хромосом". Каждая хромосома — это закодированное решение (например, строка битов, чисел или других символов).</p>
+          </div>
+        </div>
+      </div>
 
-      <h2 class="text-2xl font-bold mb-4">3. Селекция</h2>
-      <p class="text-lg mb-4">Селекция — это процесс отбора лучших хромосом для "размножения". Используются методы, такие как рулетка или турнирный отбор.</p>
+      <div class="principle-card bg-white p-6 rounded-lg shadow-sm">
+        <div class="flex items-start mb-4">
+          <div class="flex-shrink-0 bg-blue-100 p-3 rounded-full mr-4">
+            <i class="fas fa-running text-blue-600 text-xl"></i>
+          </div>
+          <div>
+            <h2 class="text-xl font-bold text-gray-800 mb-2">Фитнес-функция</h2>
+            <p class="text-gray-600">Функция, которая оценивает, насколько хорошо хромосома решает задачу. Чем выше значение фитнес-функции, тем лучше решение.</p>
+          </div>
+        </div>
+      </div>
 
-      <h2 class="text-2xl font-bold mb-4">4. Кроссинговер (рекомбинация)</h2>
-      <p class="text-lg mb-4">Кроссинговер — это обмен генетическим материалом между двумя хромосомами. Он создает новые решения, комбинируя признаки родителей.</p>
+      <div class="principle-card bg-white p-6 rounded-lg shadow-sm">
+        <div class="flex items-start mb-4">
+          <div class="flex-shrink-0 bg-blue-100 p-3 rounded-full mr-4">
+            <i class="fas fa-chess text-blue-600 text-xl"></i>
+          </div>
+          <div>
+            <h2 class="text-xl font-bold text-gray-800 mb-2">Селекция</h2>
+            <p class="text-gray-600">Процесс отбора лучших хромосом для "размножения". Используются методы, такие как рулетка или турнирный отбор.</p>
+          </div>
+        </div>
+      </div>
 
-      <h2 class="text-2xl font-bold mb-4">5. Мутация</h2>
-      <p class="text-lg mb-4">Мутация — это случайное изменение генов в хромосоме. Она помогает избежать застревания в локальных оптимумах.</p>
+      <div class="principle-card bg-white p-6 rounded-lg shadow-sm">
+        <div class="flex items-start mb-4">
+          <div class="flex-shrink-0 bg-blue-100 p-3 rounded-full mr-4">
+            <i class="fas fa-exchange-alt text-blue-600 text-xl"></i>
+          </div>
+          <div>
+            <h2 class="text-xl font-bold text-gray-800 mb-2">Кроссинговер</h2>
+            <p class="text-gray-600">Обмен генетическим материалом между двумя хромосомами. Он создает новые решения, комбинируя признаки родителей.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Визуализация процесса -->
+    <div class="bg-white rounded-xl shadow-md overflow-hidden p-6 mb-12">
+      <h2 class="text-2xl font-bold mb-6 text-gray-800">Как работают генетические алгоритмы</h2>
+      
+      <div class="flex flex-col items-center">
+        <div class="w-full max-w-md">
+          <!-- Шаг 1 -->
+          <div class="flex items-start">
+            <div class="flex-shrink-0 bg-blue-600 text-white rounded-full w-10 h-10 flex items-center justify-center mr-4">
+              1
+            </div>
+            <div class="pb-8">
+              <h3 class="text-lg font-semibold text-gray-800 mb-2">Инициализация популяции</h3>
+              <p class="text-gray-600">Создается начальная популяция случайных решений</p>
+            </div>
+          </div>
+          
+          <div class="step-connector"></div>
+          
+          <!-- Шаг 2 -->
+          <div class="flex items-start">
+            <div class="flex-shrink-0 bg-blue-600 text-white rounded-full w-10 h-10 flex items-center justify-center mr-4">
+              2
+            </div>
+            <div class="pb-8">
+              <h3 class="text-lg font-semibold text-gray-800 mb-2">Оценка приспособленности</h3>
+              <p class="text-gray-600">Каждое решение оценивается с помощью фитнес-функции</p>
+            </div>
+          </div>
+          
+          <div class="step-connector"></div>
+          
+          <!-- Шаг 3 -->
+          <div class="flex items-start">
+            <div class="flex-shrink-0 bg-blue-600 text-white rounded-full w-10 h-10 flex items-center justify-center mr-4">
+              3
+            </div>
+            <div class="pb-8">
+              <h3 class="text-lg font-semibold text-gray-800 mb-2">Селекция</h3>
+              <p class="text-gray-600">Выбираются лучшие решения для "размножения"</p>
+            </div>
+          </div>
+          
+          <div class="step-connector"></div>
+          
+          <!-- Шаг 4 -->
+          <div class="flex items-start">
+            <div class="flex-shrink-0 bg-blue-600 text-white rounded-full w-10 h-10 flex items-center justify-center mr-4">
+              4
+            </div>
+            <div class="pb-8">
+              <h3 class="text-lg font-semibold text-gray-800 mb-2">Кроссинговер</h3>
+              <p class="text-gray-600">Создаются новые решения путем комбинации родительских</p>
+            </div>
+          </div>
+          
+          <div class="step-connector"></div>
+          
+          <!-- Шаг 5 -->
+          <div class="flex items-start">
+            <div class="flex-shrink-0 bg-blue-600 text-white rounded-full w-10 h-10 flex items-center justify-center mr-4">
+              5
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-gray-800 mb-2">Мутация</h3>
+              <p class="text-gray-600">Вносятся случайные изменения в некоторые решения</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Дополнительная информация в аккордеоне -->
+    <div class="bg-white rounded-xl shadow-md overflow-hidden p-6">
+      <h2 class="text-2xl font-bold mb-6 text-gray-800">Дополнительная информация</h2>
+      
+      <div data-accordion data-title="Типы представления решений">
+        <p>Генетические алгоритмы могут работать с различными представлениями решений:</p>
+        <ul class="list-disc pl-5 mt-2 space-y-1">
+          <li><strong>Бинарное кодирование</strong> - решение представляется в виде строки битов</li>
+          <li><strong>Вещественное кодирование</strong> - решение представляется вектором вещественных чисел</li>
+          <li><strong>Порядковое кодирование</strong> - используется для задач упорядочивания (например, задачи коммивояжера)</li>
+          <li><strong>Древовидное представление</strong> - используется в генетическом программировании</li>
+        </ul>
+      </div>
+      
+      <div data-accordion data-title="Методы селекции">
+        <p>Существует несколько методов отбора особей для размножения:</p>
+        <ul class="list-disc pl-5 mt-2 space-y-1">
+          <li><strong>Рулеточная селекция</strong> - вероятность выбора пропорциональна значению фитнес-функции</li>
+          <li><strong>Турнирная селекция</strong> - случайный выбор нескольких особей и выбор лучшей из них</li>
+          <li><strong>Ранговая селекция</strong> - особи выбираются на основе их ранга в популяции</li>
+          <li><strong>Элитизм</strong> - лучшие особи автоматически переходят в следующее поколение</li>
+        </ul>
+      </div>
     </div>
   </main>
 
-  <!-- Подвал -->
-  <footer class="bg-gray-800 text-white py-4 mt-12">
-    <div class="container mx-auto px-4 text-center">
-      <p>© 2025 СПбГУТ. Железинский ИБ-36С.</p>
-    </div>
-  </footer>
+<!-- Подвал -->
+<footer class="bg-gray-900 text-gray-300 pt-12 pb-8">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-col md:flex-row justify-between items-center">
+      <!-- Лого и описание -->
+      <div class="flex flex-col items-center md:items-start mb-6 md:mb-0">
+        <div class="flex items-center mb-3">
+          <div class="bg-blue-600 p-2 rounded-lg mr-3">
+            <i class="fas fa-dna text-white text-xl"></i>
+          </div>
+          <span class="text-xl font-bold text-white">Генетические алгоритмы</span>
+        </div>
+        <p class="text-sm text-center md:text-left">
+          Исследовательский проект СПбГУТ
+        </p>
+      </div>
 
-  <!-- Скрипт -->
-  <script src="script.js"></script>
+      <!-- Контакты -->
+      <div class="flex flex-col items-center md:items-end">
+        <div class="flex space-x-4 mb-4">
+          <a href="https://github.com/lewassee" target="_blank" 
+             class="bg-gray-800 hover:bg-blue-600 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1"
+             aria-label="GitHub">
+            <i class="fab fa-github text-lg"></i>
+          </a>
+          <a href="https://t.me/pyroffy" target="_blank" 
+             class="bg-gray-800 hover:bg-blue-600 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1"
+             aria-label="Telegram">
+            <i class="fab fa-telegram text-lg"></i>
+          </a>
+          <a href="mailto:zhelezinskym@ya.ru" 
+             class="bg-gray-800 hover:bg-blue-600 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1"
+             aria-label="Email">
+            <i class="fas fa-envelope text-lg"></i>
+          </a>
+        </div>
+        <p class="text-sm text-gray-500">
+          © 2025 Железинский М.В., ИБ-36С
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
 </body>
 </html>

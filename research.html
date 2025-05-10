@@ -21,6 +21,7 @@
           <li><a href="stages.html" class="hover:text-blue-500">Этапы</a></li>
           <li><a href="application.html" class="hover:text-blue-500">Применение</a></li>
           <li><a href="future.html" class="hover:text-blue-500">Перспективы</a></li>
+          <li><a href="main.html" class="nav-link px-3 py-1 rounded-md hover:bg-blue-50 hover:text-blue-600 transition">Титул</a></li>
         </ul>
       </nav>
     </div>
@@ -47,12 +48,49 @@
     </div>
   </main>
 
-  <!-- Подвал -->
-  <footer class="bg-gray-800 text-white py-4 mt-12">
-    <div class="container mx-auto px-4 text-center">
-      <p>© 2024 СПбГУТ. Все права защищены.</p>
+<!-- Подвал -->
+<footer class="bg-gray-900 text-gray-300 pt-12 pb-8">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-col md:flex-row justify-between items-center">
+      <!-- Лого и описание -->
+      <div class="flex flex-col items-center md:items-start mb-6 md:mb-0">
+        <div class="flex items-center mb-3">
+          <div class="bg-blue-600 p-2 rounded-lg mr-3">
+            <i class="fas fa-dna text-white text-xl"></i>
+          </div>
+          <span class="text-xl font-bold text-white">Генетические алгоритмы</span>
+        </div>
+        <p class="text-sm text-center md:text-left">
+          Исследовательский проект СПбГУТ
+        </p>
+      </div>
+
+      <!-- Контакты -->
+      <div class="flex flex-col items-center md:items-end">
+        <div class="flex space-x-4 mb-4">
+          <a href="https://github.com/lewassee" target="_blank" 
+             class="bg-gray-800 hover:bg-blue-600 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1"
+             aria-label="GitHub">
+            <i class="fab fa-github text-lg"></i>
+          </a>
+          <a href="https://t.me/pyroffy" target="_blank" 
+             class="bg-gray-800 hover:bg-blue-600 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1"
+             aria-label="Telegram">
+            <i class="fab fa-telegram text-lg"></i>
+          </a>
+          <a href="mailto:zhelezinskym@ya.ru" 
+             class="bg-gray-800 hover:bg-blue-600 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1"
+             aria-label="Email">
+            <i class="fas fa-envelope text-lg"></i>
+          </a>
+        </div>
+        <p class="text-sm text-gray-500">
+          © 2025 Железинский М.В., ИБ-36С
+        </p>
+      </div>
     </div>
-  </footer>
+  </div>
+</footer>
 
   <!-- Скрипт -->
   <script src="script.js"></script>

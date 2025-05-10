@@ -3,50 +3,229 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Цель работы</title>
+  <title>Цель исследования генетических алгоритмов</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-  <link href="styles.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@headlessui/react@1.7.15/dist/headlessui.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="components.js"></script>
+  <style>
+    .timeline-item {
+      position: relative;
+      padding-left: 2rem;
+      margin-bottom: 2rem;
+    }
+    .timeline-item:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #3b82f6;
+      border: 3px solid white;
+      box-shadow: 0 0 0 2px #3b82f6;
+    }
+    .timeline-item:after {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 16px;
+      width: 2px;
+      height: calc(100% - 16px);
+      background: #d1d5db;
+    }
+    .timeline-item:last-child:after {
+      display: none;
+    }
+    .feature-card {
+      transition: all 0.3s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+  </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-gray-50 text-gray-800">
   <!-- Шапка -->
-  <header class="bg-white shadow-md fixed w-full top-0 z-50">
-    <div class="container mx-auto px-4 py-2 flex justify-between items-center">
-      <div class="text-xl font-bold">Генетические алгоритмы</div>
-      <nav>
-        <ul class="flex space-x-4">
-          <li><a href="index.html" class="hover:text-blue-500">Главная</a></li>
-          <li><a href="goal.html" class="hover:text-blue-500">Цель</a></li>
-          <li><a href="principles.html" class="hover:text-blue-500">Принципы</a></li>
-          <li><a href="stages.html" class="hover:text-blue-500">Этапы</a></li>
-          <li><a href="application.html" class="hover:text-blue-500">Применение</a></li>
-          <li><a href="future.html" class="hover:text-blue-500">Перспективы</a></li>
+  <header class="bg-white shadow-md fixed w-full top-0 z-50 transition-all duration-300">
+    <div class="container mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center">
+      <a href="index.html" class="text-xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent hover:from-blue-800 hover:to-blue-600 transition-all duration-500">
+        Генетические алгоритмы
+      </a>
+      <nav class="mt-4 md:mt-0">
+        <ul class="flex flex-wrap justify-center gap-2 md:gap-4">
+          <li><a href="index.html" class="px-3 py-1 rounded-md hover:bg-blue-50 hover:text-blue-600 transition">Главная</a></li>
+          <li><a href="goal.html" class="px-3 py-1 rounded-md bg-blue-100 text-blue-700 font-medium transition">Цель</a></li>
+          <li><a href="principles.html" class="px-3 py-1 rounded-md hover:bg-blue-50 hover:text-blue-600 transition">Принципы</a></li>
+          <li><a href="stages.html" class="px-3 py-1 rounded-md hover:bg-blue-50 hover:text-blue-600 transition">Этапы</a></li>
+          <li><a href="application.html" class="px-3 py-1 rounded-md hover:bg-blue-50 hover:text-blue-600 transition">Применение</a></li>
+          <li><a href="future.html" class="px-3 py-1 rounded-md hover:bg-blue-50 hover:text-blue-600 transition">Перспективы</a></li>
+          <li><a href="main.html" class="nav-link px-3 py-1 rounded-md hover:bg-blue-50 hover:text-blue-600 transition">Титул</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <!-- Основной контент -->
-  <main class="pt-20 container mx-auto px-4 py-12">
-    <div class="text-center">
-      <i class="fas fa-bullseye text-6xl text-blue-500 mb-4"></i>
-      <h1 class="text-4xl font-bold mb-8">Цель работы</h1>
+  <main class="pt-24 container mx-auto px-4 py-8 max-w-4xl">
+    <div class="text-center mb-12">
+      <div class="inline-block p-4 bg-blue-100 rounded-full">
+        <i class="fas fa-bullseye text-4xl text-blue-600"></i>
+      </div>
+      <h1 class="text-3xl md:text-4xl font-bold mt-4 mb-2 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+        Цель исследования
+      </h1>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Изучение генетических алгоритмов как мощного инструмента оптимизации
+      </p>
     </div>
-    <div class="bg-white p-6 rounded-lg shadow-md">
-      <p class="text-lg mb-4">Генетические алгоритмы (ГА) — это методы оптимизации, вдохновленные биологической эволюцией. Они имитируют процессы естественного отбора, мутации и рекомбинации для поиска оптимальных решений сложных задач.</p>
-      <p class="text-lg mb-4">Цель нашего исследования — изучить историю развития генетических алгоритмов, их эволюцию, ключевые этапы, принципы работы и влияние на современные технологии.</p>
-      <p class="text-lg mb-4">ГА активно применяются в различных областях, таких как искусственный интеллект, инженерия, экономика и биоинформатика, что делает их важным инструментом для решения сложных задач оптимизации.</p>
+
+    <!-- Основной текст -->
+    <div class="bg-white rounded-xl shadow-md overflow-hidden p-6 mb-12">
+      <div class="prose max-w-none">
+        <p class="text-lg mb-6">
+          Генетические алгоритмы (ГА) — это методы оптимизации, вдохновленные биологической эволюцией. Они имитируют процессы естественного отбора, мутации и рекомбинации для поиска оптимальных решений сложных задач.
+        </p>
+        
+        <p class="text-lg mb-6">
+          <strong>Основная цель нашего исследования</strong> — комплексное изучение генетических алгоритмов, включая их историю развития, ключевые принципы работы, этапы эволюции и влияние на современные технологии.
+        </p>
+        
+        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6 rounded-r">
+          <p class="text-blue-800 font-medium">
+            <i class="fas fa-info-circle mr-2"></i> ГА особенно эффективны для задач, где традиционные методы оптимизации оказываются неэффективными из-за большого пространства поиска или сложности целевой функции.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ключевые аспекты исследования -->
+    <div class="mb-12">
+      <h2 class="text-2xl font-bold mb-6 text-center text-gray-800">Ключевые аспекты исследования</h2>
+      
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="feature-card bg-white p-6 rounded-lg shadow-sm">
+          <div class="text-blue-500 mb-4">
+            <i class="fas fa-history text-3xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Исторический контекст</h3>
+          <p class="text-gray-600">Изучение эволюции ГА от первых теоретических работ до современных реализаций.</p>
+        </div>
+        
+        <div class="feature-card bg-white p-6 rounded-lg shadow-sm">
+          <div class="text-blue-500 mb-4">
+            <i class="fas fa-cogs text-3xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Принципы работы</h3>
+          <p class="text-gray-600">Анализ основных механизмов и операторов генетических алгоритмов.</p>
+        </div>
+        
+        <div class="feature-card bg-white p-6 rounded-lg shadow-sm">
+          <div class="text-blue-500 mb-4">
+            <i class="fas fa-chart-line text-3xl"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Практическое применение</h3>
+          <p class="text-gray-600">Исследование современных областей применения и эффективности ГА.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Историческая справка -->
+    <div class="bg-white rounded-xl shadow-md overflow-hidden p-6 mb-12">
+      <h2 class="text-2xl font-bold mb-6 text-gray-800">Историческая справка</h2>
+      
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3 class="text-lg font-semibold text-gray-800 mb-2">1960-е годы</h3>
+          <p class="text-gray-600">Первые работы по эволюционным вычислениям (Лоуренс Фогель, Майкл Конрад).</p>
+        </div>
+        
+        <div class="timeline-item">
+          <h3 class="text-lg font-semibold text-gray-800 mb-2">1975 год</h3>
+          <p class="text-gray-600">Джон Холланд публикует книгу "Adaptation in Natural and Artificial Systems", заложив основы ГА.</p>
+        </div>
+        
+        <div class="timeline-item">
+          <h3 class="text-lg font-semibold text-gray-800 mb-2">1980-е годы</h3>
+          <p class="text-gray-600">Первые практические применения ГА в инженерии и компьютерных науках.</p>
+        </div>
+        
+        <div class="timeline-item">
+          <h3 class="text-lg font-semibold text-gray-800 mb-2">1990-е - н.в.</h3>
+          <p class="text-gray-600">Широкое распространение ГА в различных областях, развитие гибридных методов.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Актуальность исследования -->
+    <div data-accordion data-title="Актуальность исследования" class="mb-6">
+      <p class="text-gray-700 mb-4">Генетические алгоритмы остаются актуальными по нескольким причинам:</p>
+      <ul class="list-disc pl-5 space-y-2">
+        <li>Способность решать сложные многомерные задачи оптимизации</li>
+        <li>Гибкость и адаптируемость к различным типам задач</li>
+        <li>Параллельная природа алгоритма, хорошо подходящая для современных вычислительных систем</li>
+        <li>Возможность комбинации с другими методами искусственного интеллекта</li>
+      </ul>
+    </div>
+
+    <!-- Методология -->
+    <div data-accordion data-title="Методология исследования">
+      <p class="text-gray-700 mb-4">В исследовании использовались следующие методы:</p>
+      <ul class="list-disc pl-5 space-y-2">
+        <li>Анализ научной литературы и публикаций</li>
+        <li>Сравнительный анализ различных модификаций ГА</li>
+        <li>Практическая реализация простого генетического алгоритма</li>
+        <li>Изучение кейсов применения в реальных задачах</li>
+      </ul>
     </div>
   </main>
 
-  <!-- Подвал -->
-  <footer class="bg-gray-800 text-white py-4 mt-12">
-    <div class="container mx-auto px-4 text-center">
-      <p>© 2025 СПбГУТ. Железинский ИБ-36С.</p>
-    </div>
-  </footer>
+<!-- Подвал -->
+<footer class="bg-gray-900 text-gray-300 pt-12 pb-8">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-col md:flex-row justify-between items-center">
+      <!-- Лого и описание -->
+      <div class="flex flex-col items-center md:items-start mb-6 md:mb-0">
+        <div class="flex items-center mb-3">
+          <div class="bg-blue-600 p-2 rounded-lg mr-3">
+            <i class="fas fa-dna text-white text-xl"></i>
+          </div>
+          <span class="text-xl font-bold text-white">Генетические алгоритмы</span>
+        </div>
+        <p class="text-sm text-center md:text-left">
+          Исследовательский проект СПбГУТ
+        </p>
+      </div>
 
-  <!-- Скрипт -->
-  <script src="script.js"></script>
+      <!-- Контакты -->
+      <div class="flex flex-col items-center md:items-end">
+        <div class="flex space-x-4 mb-4">
+          <a href="https://github.com/lewassee" target="_blank" 
+             class="bg-gray-800 hover:bg-blue-600 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1"
+             aria-label="GitHub">
+            <i class="fab fa-github text-lg"></i>
+          </a>
+          <a href="https://t.me/pyroffy" target="_blank" 
+             class="bg-gray-800 hover:bg-blue-600 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1"
+             aria-label="Telegram">
+            <i class="fab fa-telegram text-lg"></i>
+          </a>
+          <a href="mailto:zhelezinskym@ya.ru" 
+             class="bg-gray-800 hover:bg-blue-600 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1"
+             aria-label="Email">
+            <i class="fas fa-envelope text-lg"></i>
+          </a>
+        </div>
+        <p class="text-sm text-gray-500">
+          © 2025 Железинский М.В., ИБ-36С
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
 </body>
 </html>

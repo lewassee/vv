@@ -3,58 +3,261 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Перспективы развития</title>
+  <title>Перспективы развития генетических алгоритмов</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-  <link href="styles.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@headlessui/react@1.7.15/dist/headlessui.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="components.js"></script>
+  <style>
+    .trend-card {
+      transition: all 0.3s ease;
+    }
+    .trend-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+    .timeline-marker {
+      position: relative;
+      padding-left: 2.5rem;
+    }
+    .timeline-marker:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #3B82F6;
+      border: 3px solid white;
+      box-shadow: 0 0 0 2px #3B82F6;
+    }
+    .timeline-marker:after {
+      content: '';
+      position: absolute;
+      left: 9px;
+      top: 20px;
+      width: 2px;
+      height: calc(100% - 20px);
+      background: #E5E7EB;
+    }
+    .timeline-marker:last-child:after {
+      display: none;
+    }
+  </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-gray-50 text-gray-800">
   <!-- Шапка -->
-  <header class="bg-white shadow-md fixed w-full top-0 z-50">
-    <div class="container mx-auto px-4 py-2 flex justify-between items-center">
-      <div class="text-xl font-bold">Генетические алгоритмы</div>
-      <nav>
-        <ul class="flex space-x-4">
-          <li><a href="index.html" class="hover:text-blue-500">Главная</a></li>
-          <li><a href="goal.html" class="hover:text-blue-500">Цель</a></li>
-          <li><a href="principles.html" class="hover:text-blue-500">Принципы</a></li>
-          <li><a href="stages.html" class="hover:text-blue-500">Этапы</a></li>
-          <li><a href="application.html" class="hover:text-blue-500">Применение</a></li>
-          <li><a href="future.html" class="hover:text-blue-500">Перспективы</a></li>
+  <header class="bg-white shadow-md fixed w-full top-0 z-50 transition-all duration-300">
+    <div class="container mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center">
+      <a href="index.html" class="text-xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent hover:from-blue-800 hover:to-blue-600 transition-all duration-500">
+        Генетические алгоритмы
+      </a>
+      <nav class="mt-4 md:mt-0">
+        <ul class="flex flex-wrap justify-center gap-2 md:gap-4">
+          <li><a href="index.html" class="px-3 py-1 rounded-md hover:bg-blue-50 hover:text-blue-600 transition">Главная</a></li>
+          <li><a href="goal.html" class="px-3 py-1 rounded-md hover:bg-blue-50 hover:text-blue-600 transition">Цель</a></li>
+          <li><a href="principles.html" class="px-3 py-1 rounded-md hover:bg-blue-50 hover:text-blue-600 transition">Принципы</a></li>
+          <li><a href="stages.html" class="px-3 py-1 rounded-md hover:bg-blue-50 hover:text-blue-600 transition">Этапы</a></li>
+          <li><a href="application.html" class="px-3 py-1 rounded-md hover:bg-blue-50 hover:text-blue-600 transition">Применение</a></li>
+          <li><a href="future.html" class="px-3 py-1 rounded-md bg-blue-100 text-blue-700 font-medium transition">Перспективы</a></li>
+          <li><a href="main.html" class="nav-link px-3 py-1 rounded-md hover:bg-blue-50 hover:text-blue-600 transition">Титул</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <!-- Основной контент -->
-  <main class="pt-20 container mx-auto px-4 py-12">
-    <div class="text-center">
-      <i class="fas fa-rocket text-6xl text-blue-500 mb-4"></i>
-      <h1 class="text-4xl font-bold mb-8">Перспективы развития</h1>
+  <main class="pt-24 container mx-auto px-4 py-8 max-w-4xl">
+    <div class="text-center mb-12">
+      <div class="inline-block p-4 bg-blue-100 rounded-full">
+        <i class="fas fa-rocket text-4xl text-blue-600"></i>
+      </div>
+      <h1 class="text-3xl md:text-4xl font-bold mt-4 mb-2 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+        Перспективы развития
+      </h1>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Будущее генетических алгоритмов и их роль в развитии искусственного интеллекта
+      </p>
     </div>
-    <div class="bg-white p-6 rounded-lg shadow-md">
-      <h2 class="text-2xl font-bold mb-4">Увеличение скорости работы</h2>
-      <p class="text-lg mb-4">С развитием квантовых вычислений и параллельных технологий ГА станут еще быстрее и эффективнее. Пример: решение задач оптимизации в реальном времени.</p>
 
-      <h2 class="text-2xl font-bold mb-4">Расширение областей применения</h2>
-      <p class="text-lg mb-4">ГА будут применяться в новых сферах, таких как медицина, экология, сельское хозяйство и образование. Пример: оптимизация лечения пациентов на основе генетических данных.</p>
+    <!-- Основные тренды -->
+    <div class="mb-12">
+      <h2 class="text-2xl font-bold mb-6 text-center text-gray-800">Ключевые направления развития</h2>
+      
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="trend-card bg-white p-6 rounded-lg shadow-sm border-t-4 border-blue-500">
+          <div class="flex items-start mb-4">
+            <div class="flex-shrink-0 bg-blue-100 p-3 rounded-lg mr-4">
+              <i class="fas fa-atom text-blue-600 text-xl"></i>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold mb-2">Квантовые генетические алгоритмы</h3>
+              <p class="text-gray-600">Комбинация ГА с квантовыми вычислениями позволит решать задачи, недоступные классическим компьютерам.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="trend-card bg-white p-6 rounded-lg shadow-sm border-t-4 border-green-500">
+          <div class="flex items-start mb-4">
+            <div class="flex-shrink-0 bg-green-100 p-3 rounded-lg mr-4">
+              <i class="fas fa-brain text-green-600 text-xl"></i>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold mb-2">Гибридные системы</h3>
+              <p class="text-gray-600">Интеграция ГА с нейронными сетями и другими методами машинного обучения.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="trend-card bg-white p-6 rounded-lg shadow-sm border-t-4 border-purple-500">
+          <div class="flex items-start mb-4">
+            <div class="flex-shrink-0 bg-purple-100 p-3 rounded-lg mr-4">
+              <i class="fas fa-robot text-purple-600 text-xl"></i>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold mb-2">Автономные системы</h3>
+              <p class="text-gray-600">Создание самообучающихся и адаптирующихся систем на основе ГА.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="trend-card bg-white p-6 rounded-lg shadow-sm border-t-4 border-yellow-500">
+          <div class="flex items-start mb-4">
+            <div class="flex-shrink-0 bg-yellow-100 p-3 rounded-lg mr-4">
+              <i class="fas fa-heartbeat text-yellow-600 text-xl"></i>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold mb-2">Биомедицинские приложения</h3>
+              <p class="text-gray-600">Использование ГА для персонализированной медицины и разработки лекарств.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-      <h2 class="text-2xl font-bold mb-4">Развитие автономных систем</h2>
-      <p class="text-lg mb-4">ГА станут основой для создания автономных систем, способных адаптироваться к изменяющимся условиям. Пример: автономные транспортные средства и роботы.</p>
+    <!-- Дорожная карта развития -->
+    <div class="bg-white rounded-xl shadow-md overflow-hidden p-6 mb-12">
+      <h2 class="text-2xl font-bold mb-6 text-gray-800">Дорожная карта развития ГА</h2>
+      
+      <div class="space-y-8">
+        <div class="timeline-marker pl-10">
+          <div class="bg-blue-50 p-5 rounded-lg">
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">2023-2025: Оптимизация и специализация</h3>
+            <p class="text-gray-600">Разработка более эффективных операторов и специализированных версий ГА для конкретных задач.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-marker pl-10">
+          <div class="bg-blue-50 p-5 rounded-lg">
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">2025-2030: Интеграция с ИИ</h3>
+            <p class="text-gray-600">Создание гибридных систем, сочетающих ГА с глубоким обучением и другими методами ИИ.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-marker pl-10">
+          <div class="bg-blue-50 p-5 rounded-lg">
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">2030-2035: Квантовые ГА</h3>
+            <p class="text-gray-600">Развитие квантовых версий генетических алгоритмов для решения сверхсложных задач.</p>
+          </div>
+        </div>
+        
+        <div class="timeline-marker pl-10">
+          <div class="bg-blue-50 p-5 rounded-lg">
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">После 2035: Автономные эволюционные системы</h3>
+            <p class="text-gray-600">Создание полностью автономных систем, способных к самообучению и эволюции в реальном времени.</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-      <h2 class="text-2xl font-bold mb-4">Этические и социальные аспекты</h2>
-      <p class="text-lg mb-4">С ростом применения ГА возникнут вопросы, связанные с прозрачностью алгоритмов, защитой данных и социальной справедливостью. Пример: предотвращение дискриминации в алгоритмах принятия решений.</p>
+    <!-- Вызовы и ограничения -->
+    <div data-accordion data-title="Вызовы и ограничения">
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-red-50 p-5 rounded-lg">
+          <h3 class="font-bold text-lg text-red-800 mb-3 flex items-center">
+            <i class="fas fa-exclamation-triangle mr-2"></i> Теоретические ограничения
+          </h3>
+          <ul class="list-disc pl-5 space-y-1 text-gray-700">
+            <li>Проблема преждевременной сходимости</li>
+            <li>Вычислительная сложность для многомерных задач</li>
+            <li>Трудности с доказательством сходимости</li>
+          </ul>
+        </div>
+        
+        <div class="bg-yellow-50 p-5 rounded-lg">
+          <h3 class="font-bold text-lg text-yellow-800 mb-3 flex items-center">
+            <i class="fas fa-question-circle mr-2"></i> Практические вызовы
+          </h3>
+          <ul class="list-disc pl-5 space-y-1 text-gray-700">
+            <li>Выбор параметров алгоритма</li>
+            <li>Разработка эффективных фитнес-функций</li>
+            <li>Интерпретируемость результатов</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Этические вопросы -->
+    <div data-accordion data-title="Этические вопросы" class="mt-6">
+      <div class="bg-purple-50 p-5 rounded-lg">
+        <h3 class="font-bold text-lg text-purple-800 mb-3 flex items-center">
+          <i class="fas fa-balance-scale mr-2"></i> Этика и ответственность
+        </h3>
+        <ul class="list-disc pl-5 space-y-2 text-gray-700">
+          <li>Прозрачность и объяснимость решений, принимаемых ГА</li>
+          <li>Предотвращение дискриминации в алгоритмах принятия решений</li>
+          <li>Контроль над автономными эволюционирующими системами</li>
+          <li>Ответственность за решения, предложенные алгоритмами</li>
+        </ul>
+      </div>
     </div>
   </main>
 
-  <!-- Подвал -->
-  <footer class="bg-gray-800 text-white py-4 mt-12">
-    <div class="container mx-auto px-4 text-center">
-      <p>© 2025 СПбГУТ. Железинский ИБ-36С.</p>
-    </div>
-  </footer>
+ <!-- Подвал -->
+<footer class="bg-gray-900 text-gray-300 pt-12 pb-8">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-col md:flex-row justify-between items-center">
+      <!-- Лого и описание -->
+      <div class="flex flex-col items-center md:items-start mb-6 md:mb-0">
+        <div class="flex items-center mb-3">
+          <div class="bg-blue-600 p-2 rounded-lg mr-3">
+            <i class="fas fa-dna text-white text-xl"></i>
+          </div>
+          <span class="text-xl font-bold text-white">Генетические алгоритмы</span>
+        </div>
+        <p class="text-sm text-center md:text-left">
+          Исследовательский проект СПбГУТ
+        </p>
+      </div>
 
-  <!-- Скрипт -->
-  <script src="script.js"></script>
+      <!-- Контакты -->
+      <div class="flex flex-col items-center md:items-end">
+        <div class="flex space-x-4 mb-4">
+          <a href="https://github.com/lewassee" target="_blank" 
+             class="bg-gray-800 hover:bg-blue-600 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1"
+             aria-label="GitHub">
+            <i class="fab fa-github text-lg"></i>
+          </a>
+          <a href="https://t.me/pyroffy" target="_blank" 
+             class="bg-gray-800 hover:bg-blue-600 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1"
+             aria-label="Telegram">
+            <i class="fab fa-telegram text-lg"></i>
+          </a>
+          <a href="mailto:zhelezinskym@ya.ru" 
+             class="bg-gray-800 hover:bg-blue-600 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1"
+             aria-label="Email">
+            <i class="fas fa-envelope text-lg"></i>
+          </a>
+        </div>
+        <p class="text-sm text-gray-500">
+          © 2025 Железинский М.В., ИБ-36С
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
 </body>
 </html>

@@ -3,24 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Современные исследования</title>
+  <title>Этапы работы генетического алгоритма</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-  <link href="styles.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@headlessui/react@1.7.15/dist/headlessui.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="components.js"></script>
+  <style>
+    .stage-card {
+      transition: all 0.3s ease;
+      border-left: 4px solid transparent;
+    }
+    .stage-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+    .stage-card-1:hover { border-left-color: #3B82F6; }
+    .stage-card-2:hover { border-left-color: #10B981; }
+    .stage-card-3:hover { border-left-color: #F59E0B; }
+    .stage-card-4:hover { border-left-color: #EF4444; }
+    .stage-card-5:hover { border-left-color: #8B5CF6; }
+    .progress-bar {
+      height: 6px;
+      background-color: #E5E7EB;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #3B82F6, #8B5CF6);
+      border-radius: 3px;
+      transition: width 0.5s ease;
+    }
+  </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-gray-50 text-gray-800">
   <!-- Шапка -->
-  <header class="bg-white shadow-md fixed w-full top-0 z-50">
-    <div class="container mx-auto px-4 py-2 flex justify-between items-center">
-      <div class="text-xl font-bold">Генетические алгоритмы</div>
-      <nav>
-        <ul class="flex space-x-4">
-          <li><a href="index.html" class="hover:text-blue-500">Главная</a></li>
-          <li><a href="goal.html" class="hover:text-blue-500">Цель</a></li>
-          <li><a href="principles.html" class="hover:text-blue-500">Принципы</a></li>
-          <li><a href="stages.html" class="hover:text-blue-500">Этапы</a></li>
-          <li><a href="application.html" class="hover:text-blue-500">Применение</a></li>
-          <li><a href="future.html" class="hover:text-blue-500">Перспективы</a></li>
+  <header class="bg-white shadow-md fixed w-full top-0 z-50 transition-all duration-300">
+    <div class="container mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center">
+      <a href="index.html" class="text-xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent hover:from-blue-800 hover:to-blue-600 transition-all duration-500">
+        Генетические алгоритмы
+      </a>
+      <nav class="mt-4 md:mt-0">
+        <ul class="flex flex-wrap justify-center gap-2 md:gap-4">
+          <li><a href="index.html" class="px-3 py-1 rounded-md hover:bg-blue-50 hover:text-blue-600 transition">Главная</a></li>
+          <li><a href="goal.html" class="px-3 py-1 rounded-md hover:bg-blue-50 hover:text-blue-600 transition">Цель</a></li>
+          <li><a href="principles.html" class="px-3 py-1 rounded-md hover:bg-blue-50 hover:text-blue-600 transition">Принципы</a></li>
+          <li><a href="stages.html" class="px-3 py-1 rounded-md bg-blue-100 text-blue-700 font-medium transition">Этапы</a></li>
+          <li><a href="application.html" class="px-3 py-1 rounded-md hover:bg-blue-50 hover:text-blue-600 transition">Применение</a></li>
+          <li><a href="future.html" class="px-3 py-1 rounded-md hover:bg-blue-50 hover:text-blue-600 transition">Перспективы</a></li>
           <li><a href="main.html" class="nav-link px-3 py-1 rounded-md hover:bg-blue-50 hover:text-blue-600 transition">Титул</a></li>
         </ul>
       </nav>
@@ -28,23 +60,180 @@
   </header>
 
   <!-- Основной контент -->
-  <main class="pt-20 container mx-auto px-4 py-12">
-    <div class="text-center">
-      <i class="fas fa-flask text-6xl text-blue-500 mb-4"></i>
-      <h1 class="text-4xl font-bold mb-8">Современные исследования</h1>
+  <main class="pt-24 container mx-auto px-4 py-8 max-w-4xl">
+    <div class="text-center mb-12">
+      <div class="inline-block p-4 bg-blue-100 rounded-full">
+        <i class="fas fa-project-diagram text-4xl text-blue-600"></i>
+      </div>
+      <h1 class="text-3xl md:text-4xl font-bold mt-4 mb-2 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+        Этапы генетического алгоритма
+      </h1>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Пошаговый процесс работы генетического алгоритма от инициализации до получения результата
+      </p>
     </div>
-    <div class="bg-white p-6 rounded-lg shadow-md">
-      <h2 class="text-2xl font-bold mb-4">Разработка энергоэффективных алгоритмов</h2>
-      <p class="text-lg mb-4">Ученые работают над созданием ГА, которые потребляют меньше вычислительных ресурсов и энергии. Пример: использование ГА в мобильных устройствах и IoT-устройствах.</p>
 
-      <h2 class="text-2xl font-bold mb-4">Интеграция с квантовыми вычислениями</h2>
-      <p class="text-lg mb-4">Исследуется возможность использования квантовых компьютеров для ускорения работы ГА. Пример: квантовые генетические алгоритмы для решения задач оптимизации.</p>
+    <!-- Прогресс-бар -->
+    <div class="mb-8">
+      <div class="flex justify-between mb-2">
+        <span class="text-sm font-medium text-gray-700">Прогресс алгоритма</span>
+        <span class="text-sm font-medium text-gray-500" id="progress-value">0%</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+      </div>
+    </div>
 
-      <h2 class="text-2xl font-bold mb-4">Применение в задачах Big Data</h2>
-      <p class="text-lg mb-4">ГА адаптируются для работы с огромными объемами данных, что открывает новые возможности в анализе и прогнозировании. Пример: оптимизация алгоритмов обработки данных в реальном времени.</p>
+    <!-- Карточки этапов -->
+    <div class="space-y-6 mb-12">
+      <!-- Этап 1 -->
+      <div class="stage-card stage-card-1 bg-white p-6 rounded-lg shadow-sm">
+        <div class="flex items-start">
+          <div class="flex-shrink-0 bg-blue-100 text-blue-600 rounded-lg p-3 mr-4">
+            <i class="fas fa-layer-group text-xl"></i>
+          </div>
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <h2 class="text-xl font-bold text-gray-800">1. Инициализация популяции</h2>
+              <button onclick="updateProgress(20)" class="text-blue-500 hover:text-blue-700 text-sm font-medium">
+                <i class="fas fa-play-circle mr-1"></i> Запустить этап
+              </button>
+            </div>
+            <p class="text-gray-600 mb-4">Создается начальная популяция случайных решений (хромосом). Размер популяции является важным параметром алгоритма.</p>
+            <div class="bg-blue-50 p-4 rounded-lg">
+              <p class="text-blue-800 text-sm"><i class="fas fa-info-circle mr-2"></i> Каждая хромосома представляет собой закодированное возможное решение задачи.</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <h2 class="text-2xl font-bold mb-4">Самообучающиеся ГА</h2>
-      <p class="text-lg mb-4">Разработка алгоритмов, которые могут автоматически настраивать свои параметры в процессе работы. Пример: ГА для управления роботами в динамической среде.</p>
+      <!-- Этап 2 -->
+      <div class="stage-card stage-card-2 bg-white p-6 rounded-lg shadow-sm">
+        <div class="flex items-start">
+          <div class="flex-shrink-0 bg-green-100 text-green-600 rounded-lg p-3 mr-4">
+            <i class="fas fa-running text-xl"></i>
+          </div>
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <h2 class="text-xl font-bold text-gray-800">2. Оценка приспособленности</h2>
+              <button onclick="updateProgress(40)" class="text-green-500 hover:text-green-700 text-sm font-medium">
+                <i class="fas fa-play-circle mr-1"></i> Запустить этап
+              </button>
+            </div>
+            <p class="text-gray-600 mb-4">Для каждой особи в популяции вычисляется значение фитнес-функции, которая определяет качество решения.</p>
+            <div class="bg-green-50 p-4 rounded-lg">
+              <p class="text-green-800 text-sm"><i class="fas fa-info-circle mr-2"></i> Фитнес-функция должна корректно отражать "приспособленность" решения к задаче.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Этап 3 -->
+      <div class="stage-card stage-card-3 bg-white p-6 rounded-lg shadow-sm">
+        <div class="flex items-start">
+          <div class="flex-shrink-0 bg-yellow-100 text-yellow-600 rounded-lg p-3 mr-4">
+            <i class="fas fa-chess text-xl"></i>
+          </div>
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <h2 class="text-xl font-bold text-gray-800">3. Селекция</h2>
+              <button onclick="updateProgress(60)" class="text-yellow-500 hover:text-yellow-700 text-sm font-medium">
+                <i class="fas fa-play-circle mr-1"></i> Запустить этап
+              </button>
+            </div>
+            <p class="text-gray-600 mb-4">Особи с лучшими значениями фитнес-функции выбираются для "размножения". Существует несколько методов селекции: рулетка, турнирная и др.</p>
+            <div class="bg-yellow-50 p-4 rounded-lg">
+              <p class="text-yellow-800 text-sm"><i class="fas fa-info-circle mr-2"></i> Селекция обеспечивает давление отбора, но слишком сильное давление может привести к преждевременной сходимости.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Этап 4 -->
+      <div class="stage-card stage-card-4 bg-white p-6 rounded-lg shadow-sm">
+        <div class="flex items-start">
+          <div class="flex-shrink-0 bg-red-100 text-red-600 rounded-lg p-3 mr-4">
+            <i class="fas fa-exchange-alt text-xl"></i>
+          </div>
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <h2 class="text-xl font-bold text-gray-800">4. Кроссинговер (рекомбинация)</h2>
+              <button onclick="updateProgress(80)" class="text-red-500 hover:text-red-700 text-sm font-medium">
+                <i class="fas fa-play-circle mr-1"></i> Запустить этап
+              </button>
+            </div>
+            <p class="text-gray-600 mb-4">Выбранные особи обмениваются генетическим материалом, создавая новые решения. Вероятность кроссинговера - важный параметр алгоритма.</p>
+            <div class="bg-red-50 p-4 rounded-lg">
+              <p class="text-red-800 text-sm"><i class="fas fa-info-circle mr-2"></i> Одноточечный, двухточечный и равномерный кроссинговер - наиболее распространенные методы.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Этап 5 -->
+      <div class="stage-card stage-card-5 bg-white p-6 rounded-lg shadow-sm">
+        <div class="flex items-start">
+          <div class="flex-shrink-0 bg-purple-100 text-purple-600 rounded-lg p-3 mr-4">
+            <i class="fas fa-random text-xl"></i>
+          </div>
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <h2 class="text-xl font-bold text-gray-800">5. Мутация</h2>
+              <button onclick="updateProgress(100)" class="text-purple-500 hover:text-purple-700 text-sm font-medium">
+                <i class="fas fa-play-circle mr-1"></i> Запустить этап
+              </button>
+            </div>
+            <p class="text-gray-600 mb-4">В новые особи вносятся случайные изменения с небольшой вероятностью. Мутация помогает исследовать новые области пространства поиска.</p>
+            <div class="bg-purple-50 p-4 rounded-lg">
+              <p class="text-purple-800 text-sm"><i class="fas fa-info-circle mr-2"></i> Слишком высокая вероятность мутации превращает алгоритм в случайный поиск.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Визуализация процесса -->
+    <div class="bg-white rounded-xl shadow-md overflow-hidden p-6 mb-12">
+      <h2 class="text-2xl font-bold mb-6 text-gray-800">Визуализация генетического алгоритма</h2>
+      
+      <div class="flex flex-col items-center">
+        <div class="relative w-full max-w-2xl h-64 bg-gray-100 rounded-lg mb-6 flex items-center justify-center">
+          <div id="ga-visualization" class="text-center p-4">
+            <i class="fas fa-play-circle text-4xl text-blue-500 mb-3 cursor-pointer" onclick="startVisualization()"></i>
+            <p class="text-gray-600">Нажмите для запуска визуализации</p>
+          </div>
+        </div>
+        
+        <div class="w-full">
+          <div data-accordion data-title="Параметры алгоритма">
+            <div class="grid md:grid-cols-3 gap-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Размер популяции</label>
+                <input type="range" min="10" max="100" value="50" class="w-full">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Вероятность кроссинговера</label>
+                <input type="range" min="0" max="100" value="80" class="w-full">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Вероятность мутации</label>
+                <input type="range" min="0" max="20" value="5" class="w-full">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Критерии остановки -->
+    <div data-accordion data-title="Критерии остановки алгоритма">
+      <p class="text-gray-700 mb-4">Генетический алгоритм может быть остановлен по нескольким критериям:</p>
+      <ul class="list-disc pl-5 space-y-2">
+        <li><strong>Достижение максимального числа поколений</strong> - простейший критерий, алгоритм останавливается после заданного числа итераций</li>
+        <li><strong>Сходимость популяции</strong> - когда разброс значений фитнес-функции становится меньше заданного порога</li>
+        <li><strong>Достижение целевого значения</strong> - если известно оптимальное значение фитнес-функции</li>
+        <li><strong>Отсутствие прогресса</strong> - если улучшение не превышает заданного порога в течение нескольких поколений</li>
+      </ul>
     </div>
   </main>
 
@@ -92,7 +281,33 @@
   </div>
 </footer>
 
-  <!-- Скрипт -->
-  <script src="script.js"></script>
+  <script>
+    function updateProgress(percent) {
+      document.getElementById('progress-fill').style.width = percent + '%';
+      document.getElementById('progress-value').textContent = percent + '%';
+    }
+    
+    function startVisualization() {
+      const visualization = document.getElementById('ga-visualization');
+      visualization.innerHTML = `
+        <div class="flex justify-center space-x-2 mb-4">
+          <div class="w-4 h-4 bg-blue-500 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+          <div class="w-4 h-4 bg-blue-500 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+          <div class="w-4 h-4 bg-blue-500 rounded-full animate-bounce" style="animation-delay: 0.3s"></div>
+        </div>
+        <p class="text-gray-700">Идет выполнение генетического алгоритма...</p>
+      `;
+      
+      setTimeout(() => {
+        visualization.innerHTML = `
+          <div class="text-green-500 mb-3">
+            <i class="fas fa-check-circle text-4xl"></i>
+          </div>
+          <p class="text-gray-700">Алгоритм успешно завершен!</p>
+          <p class="text-sm text-gray-500 mt-2">Найдено решение с приспособленностью: 0.92</p>
+        `;
+      }, 3000);
+    }
+  </script>
 </body>
 </html>
